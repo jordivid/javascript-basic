@@ -1,0 +1,88 @@
+/* INFO */
+/* Màxim 19 dígits */
+
+/* Estils generals */
+
+body {
+	background-color: rgb(134, 115, 63);
+}
+
+#calculadora {
+	background-color: gray;
+	border: 2px solid black;
+	border-radius: 5px;
+	padding: 5px;
+	width: 260px;
+	margin: auto;
+}
+
+/* Display de la calculadora */
+
+#display-container {
+	width: 99%;
+	margin: auto;
+	padding: 5px 0;
+	border: 1px solid darkgray;
+	border-radius: 3px;
+	background-color: black;
+	color: white;
+}
+
+#display {
+	display: inline-block;
+	width: 92%;
+	border: 0;
+	border-radius: 3px;
+	text-align: right;
+	font-family: "Pt Mono", monospace;
+	font-size: 1.5em;
+	background-color: black;
+	color: white;
+}
+
+#operacio {
+	display: inline-block;
+	text-align: center;
+}
+
+/* Àrea de botons */
+
+.hflexbox {
+	display: flex;
+	margin-top: 5px;
+}
+
+.vflexbox {
+	display: flex;
+	flex-direction: column;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+input[type="button"] {
+	cursor: pointer;
+	width: 60px;
+	height: 60px;
+	border-radius: 3px;
+	font-weight: bold;
+	font-size: 1.1em;
+	background-color: rgb(185, 182, 182);
+}
+
+#borrar {
+	width: 125px;
+}
+
+#btnplus {
+	height: 125px;
+}
+
+.hflexbox input[type=button] {
+	margin-right: 5px;
+	border: 2px outset black;
+}
+
+.vflexbox input[type=button] {
+	margin-bottom: 5px;
+	border: 2px outset black;
+}
