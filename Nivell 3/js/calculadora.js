@@ -53,13 +53,44 @@ $(document).ready(function(){
     
     $("body").keydown(function(e){
         if(teclas.has(e.originalEvent.code)) {
-            processKey(teclas.get(e.originalEvent.code));
+            let key = e.originalEvent.code;
+            let keyval = teclas.get(e.originalEvent.code);
+
+            if (key == "NumpadEnter") key = "Enter";
+            if (key == "NumpadDecimal") key = "Period";
+
+            if (keyval >"0" && keyval <="9") {
+                if($("#t"+keyval).length) {
+                    $("#t"+keyval).css("border", "2px solid white");
+                    setInterval(function() {
+                        $("#t"+keyval).css("border", "2px solid black");
+                    }, 100);
+                }
+            } else if($("#"+key).length) {
+                $("#"+key).css("border", "2px solid white");
+                setInterval(function() {
+                    $("#"+key).css("border", "2px solid black");
+                }, 100);
+            }
+            processKey(keyval);
         }
     });
 
     $("input[type=button]").each(function() {
         $(this).click(function(e) {
             processKey($(e.target).val());
+        });
+
+        /* S'impedeix que un botó mantingui el focus ja que en prémer
+           intro actuaria com un keydown sobre el botó. Per indicar la tecla
+           clicada se li posa un border blanc.
+        */ 
+        $(this).focus(function(e) {
+            $(e.target).css("border", "2px solid white");
+            setInterval(function() {
+                $(e.target).css("border", "2px solid black");
+            }, 100);
+            $(e.target).blur();
         });
     });
 
@@ -100,6 +131,9 @@ function processDigit(tecla, display, operacio) {
             }
         }
     } else {
+
+        operacioAnt = operacio;
+
         $("#display").text(tecla);
     }
 
@@ -149,6 +183,7 @@ function processOperation(tecla, display, operacio) {
     $("#operacio").text(tecla);
 }
 
+/* Es totalitza els càlculs */
 function processEqual(display) {
     if(display == "E") {
         return;
@@ -166,12 +201,13 @@ function processEqual(display) {
             $("#display").text(total);
         } else {
             total = Number(display);
+            $("#display").text(total);
         }
         display = "0";
     }
 
     primer_digit = true;
-    operacioAnt = ""; // OJO
+    operacioAnt = "";
     $("#operacio").text("");
 }
 

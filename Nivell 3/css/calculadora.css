@@ -69,11 +69,19 @@ input[type="button"] {
 	background-color: rgb(185, 182, 182);
 }
 
-#borrar {
+input.danger {
+	background-color: rgb(199, 90, 90);
+}
+
+input.oper {
+	background-color:  rgb(68, 65, 65);
+}
+
+#Backspace {
 	width: 125px;
 }
 
-#btnplus {
+#NumpadAdd {
 	height: 125px;
 }
 
