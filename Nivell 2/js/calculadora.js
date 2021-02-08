@@ -26,11 +26,12 @@ var x = 4000, y = 350;
 var operacio = "resta";
 var resultat = calculadora(operacio, 4000, 350);
 
+// Incluyo esto comentado para probar diferentes casuísticas
 // var operacio = "divisio";
 // var resultat = calculadora(operacio, 4000, 0);
 
 // var operacio = "operadorRaro";
-var resultat = calculadora(operacio, 4000, 0);
+// var resultat = calculadora(operacio, 4000, 0);
 
 if(typeof(resultat) == "string") {
     console.log(resultat);
